@@ -1,0 +1,38 @@
+<html ng-app="hqApp">
+<head>
+    <meta charset="utf-8">
+    <title>HQ POWER</title>
+</head>
+<body ng-controller="hqCtrl">
+<h1>HQ's</h1>
+
+<form ng-submit="salvar(hq)">
+    <label for="titulo">Título</label>
+    <input type="text" id="titulo" name="titulo" ng-model="hq.titulo"/>
+
+    <label for="autor">Autor</label>
+    <input type="text" id="autor" name="autor" ng-model="hq.autor"/>
+
+    <label for="dataPublicacao">Autor</label>
+    <input type="date" id="dataPublicacao" name="dataPublicacao" ng-model="hq.dataPublicacao"/>
+    <button id="btnSalvar" type="submit">Salvar</button>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Publicação</th>
+    </tr>
+    </thead>
+    <tr ng-repeat="hq in hqs">
+        <td>{{hq.titulo}}</td>
+        <td>{{hq.autor}}</td>
+        <td>{{hq.dataPublicacao | date : format : timezone}}</td>
+    </tr>
+</table>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
